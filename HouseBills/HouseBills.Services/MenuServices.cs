@@ -72,8 +72,6 @@ namespace HouseBills.Services
                             break;
                     }
 
-
-
                     break;
 
                 default: throw new Exception("Opcja nie istnieje");

@@ -65,8 +65,6 @@ namespace HouseBills.Services
                     select = Console.ReadLine();
                 }
             }
-            
         }
-
     }
 }

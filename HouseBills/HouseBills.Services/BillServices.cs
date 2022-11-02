@@ -5,54 +5,49 @@ namespace HouseBills
 {
     public class BillServices:IBillService
     {
-        public  IBillsRepository _billsRepository;
-        public BillServices(IBillsRepository billsRepository)
+
+        private  IBillsRepository _billsRepository;
+        private Bills _bills; 
+
+        public BillServices(IBillsRepository billsRepository, Bills bills)
         {
             _billsRepository = billsRepository;
+            _bills = bills;
         }
-
-       
 
         public void RegisterBill()
-        {
-            Bills bills = new Bills();
+        { 
             DateTime data = new DateTime();
-
-            //Console.WriteLine("Id:");
-            //bills.Id =int.Parse(Console.ReadLine());
+           
             Console.WriteLine($"Data: dd.MM.yyyy");
-            var datS = Console.ReadLine();
-            var datSS = data.ToString(datS);
-            bills.DateTimePay = datSS;
+            var datConsole = Console.ReadLine();
+            var datFormat = data.ToString(datConsole);
+            _bills.DateTimePay = datFormat;
+
             Console.WriteLine("Miesiąc:");
-            bills.Name = Console.ReadLine();
+            _bills.Name = Console.ReadLine();
+
             Console.WriteLine("Razem:");
-            bills.Sum = Helpers.DecimalParse(Console.ReadLine());
-            //Console.WriteLine("Eksploatacja:");
-            //bills.Exploitation = Helpers.DecimalParse(Console.ReadLine());
-            //Console.WriteLine("Konserwacja Windy:");
-            //bills.ElevatorMaintenance = Helpers.DecimalParse(Console.ReadLine());
-            //Console.WriteLine("Opłaty bankowe:");
-            //bills.BankCharges = Helpers.DecimalParse(Console.ReadLine());
-            //Console.WriteLine("Dzierżawa pojemników:");
-            //bills.LeaseContainers = Helpers.DecimalParse(Console.ReadLine());
+            _bills.Sum = Helpers.DecimalParse(Console.ReadLine());
+
             Console.WriteLine("Energia elektryczna:");
-            bills.BlockEnergy = Helpers.DecimalParse(Console.ReadLine());
+            _bills.BlockEnergy = Helpers.DecimalParse(Console.ReadLine());
+
             Console.WriteLine("Centralne ogrzewanie:");
-            bills.Heating = Helpers.DecimalParse(Console.ReadLine());
-            //Console.WriteLine("Opłata smieciowa:");
-            //bills.JunkFee = Helpers.DecimalParse(Console.ReadLine());
+            _bills.Heating = Helpers.DecimalParse(Console.ReadLine());
+           
             Console.WriteLine("Zimna woda:");
-            bills.ColdWater = Helpers.DecimalParse(Console.ReadLine());
+            _bills.ColdWater = Helpers.DecimalParse(Console.ReadLine());
+
             Console.WriteLine("Podgrzanie wody:");
-            bills.HeatingWater = Helpers.DecimalParse(Console.ReadLine());
+            _bills.HeatingWater = Helpers.DecimalParse(Console.ReadLine());
+
             Console.WriteLine("Fundusz remontowy");
-            bills.RenovationFund = Helpers.DecimalParse(Console.ReadLine());
+            _bills.RenovationFund = Helpers.DecimalParse(Console.ReadLine());
 
 
-            _billsRepository.AddBill(bills);
+            _billsRepository.AddBill(_bills);
         }
-
         public void ShowList()
         {
             List<Bills> list = _billsRepository.GetAllBills();
@@ -97,66 +92,5 @@ namespace HouseBills
                 }
             }
         }
-
-
-
-        //public List<User> GetAllUsers()
-        //{
-        //    List<User> users = new List<User>();
-
-        //    if (!File.Exists(fileName))
-        //        return new List<User>();
-
-        //    var usersFromFile = File.ReadAllLines(fileName);
-        //    foreach (var line in usersFromFile)
-        //    {
-        //        var columns = line.Split(';');
-        //        Guid.TryParse(columns[0], out var newGuid);
-        //        Enum.TryParse(columns[3], out UserRole userRole);
-        //        var wallet = new Wallet(columns[4]);
-        //        users.Add(new User { Id = newGuid, Login = columns[1], Password = columns[2], Role = userRole, Wallets = wallet });
-        //    }
-        //    return users;
-        //}
-
-        //public User GetUserById(Guid id)
-        //{
-        //    List<User> users = GetAllUsers();
-
-        //    return users.SingleOrDefault(x => x.Id == id);
-        //}
-
-        //public User GetUserByLogin(string login)
-        //{
-        //    List<User> users = GetAllUsers();
-
-        //    return users.SingleOrDefault(x => x.Login.ToLowerInvariant().Contains(login.ToLowerInvariant()));
-        //}
-
-        //public List<User> BrowseUsers(string query)
-        //{
-        //    List<User> currencies = GetAllUsers();
-
-        //    return currencies.Where(x => x.Login.ToLowerInvariant().Contains(query.ToLowerInvariant())).ToList();
-        //}
-
-        //public User GetLoginPassword(string login, string password)
-        //{
-        //    List<User> users = GetAllUsers();
-
-        //    //var usersFromFile = File.ReadAllLines(fileName);
-
-        //    //foreach (var line in usersFromFile)
-        //    //{
-        //    //    var columns = line.Split(';');
-        //    //    Enum.TryParse(columns[3], out UserRole userRole);
-        //    //    if (columns.Length == 5)
-        //    //    users.Add(new User { Login = columns[1], Password = columns[2], Id = Guid.Parse(columns[0]),  Role = userRole });
-        //    //}
-
-        //    User user = users.FirstOrDefault(x => x.Login == login && x.Password == password);
-
-        //    return user;
-        //}
     }
 }

@@ -20,13 +20,8 @@ namespace HouseBills
                 Name = bill.Name,
                 DateTimePay = bill.DateTimePay,
                 Sum = bill.Sum,
-                Exploitation = bill.Exploitation,
-                ElevatorMaintenance = bill.ElevatorMaintenance,
-                BankCharges = bill.BankCharges,
-                LeaseContainers = bill.LeaseContainers,
                 BlockEnergy = bill.BlockEnergy,
                 Heating = bill.Heating,
-                JunkFee = bill.JunkFee,
                 ColdWater = bill.ColdWater,
                 HeatingWater = bill.HeatingWater,
                 RenovationFund = bill.RenovationFund
@@ -44,8 +39,6 @@ namespace HouseBills
             return registeredBill;
         }
 
-        
-
         public List<Bills> GetAllBills()
         {
             List<Bills> bills = new List<Bills>();
@@ -62,13 +55,8 @@ namespace HouseBills
                         Name = columns[1],
                         DateTimePay =columns[2], 
                         Sum =decimal.Parse(columns[3]),
-                        //Exploitation = decimal.Parse(columns[3]),
-                       // ElevatorMaintenance = decimal.Parse(columns[4]),
-                        //BankCharges = decimal.Parse(columns[5]),
-                        //LeaseContainers = decimal.Parse(columns[6]),
                         BlockEnergy = decimal.Parse(columns[4]),
                         Heating = decimal.Parse(columns[5]),
-                        //JunkFee = decimal.Parse(columns[9]),
                         ColdWater = decimal.Parse(columns[6]),
                         HeatingWater = decimal.Parse(columns[7]),
                         RenovationFund = decimal.Parse(columns[8])
@@ -76,6 +64,5 @@ namespace HouseBills
             }
             return bills;
         }
-
     }
 }
