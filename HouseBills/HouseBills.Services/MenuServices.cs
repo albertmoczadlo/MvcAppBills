@@ -85,7 +85,7 @@ namespace HouseBills.Services
             }
             else
             {
-                Console.WriteLine("Żegnaj");
+                Console.WriteLine("Żegnaj");//new method not defined
             }
         }
     }
