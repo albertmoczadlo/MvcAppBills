@@ -3,11 +3,13 @@ using System.Security.Cryptography.X509Certificates;
 
 namespace HouseBills
 {
-    public class BillServices:IBillService
+    public class BillServices : IBillService
     {
 
-        private  IBillsRepository _billsRepository;
-        private Bills _bills; 
+        private readonly string file1 = @"C:\Users\Albert\source\repos\HouseBills\rachunek.csv";
+
+        private IBillsRepository _billsRepository;
+        private Bills _bills;
 
         public BillServices(IBillsRepository billsRepository, Bills bills)
         {
@@ -16,9 +18,9 @@ namespace HouseBills
         }
 
         public void RegisterBill()
-        { 
+        {
             DateTime data = new DateTime();
-           
+
             Console.WriteLine($"Data: dd.MM.yyyy");
             var datConsole = Console.ReadLine();
             var datFormat = data.ToString(datConsole);
@@ -35,7 +37,7 @@ namespace HouseBills
 
             Console.WriteLine("Centralne ogrzewanie:");
             _bills.Heating = Helpers.DecimalParse(Console.ReadLine());
-           
+
             Console.WriteLine("Zimna woda:");
             _bills.ColdWater = Helpers.DecimalParse(Console.ReadLine());
 
@@ -54,7 +56,7 @@ namespace HouseBills
 
             Console.WriteLine("   Miesiąc   Data       Razem    Elekt   Centr   ZimWod  Podgrz  FunRem\n");
 
-            foreach(Bills bill in list)
+            foreach (Bills bill in list)
             {
                 Console.WriteLine($" {bill.ToString()}");
             }
@@ -64,11 +66,10 @@ namespace HouseBills
         public IEnumerable<Bills> ShowMonth(string input)
         {
             List<Bills> list = _billsRepository.GetAllBills();
-            
-            var listMonth = list.Where(x => x.Name == input).OrderByDescending(x=>x.Sum);
 
-            
-            return  listMonth;
+            var listMonth = list.Where(x => x.Name == input).OrderByDescending(x => x.Sum);
+
+            return listMonth;
         }
 
         public static bool GetBackToMainMenuQuestion()
@@ -91,6 +92,33 @@ namespace HouseBills
                     Console.WriteLine("Wrong option");
                 }
             }
+        }
+
+        public bool DeleteBills(string month, decimal sum)
+        {
+            try
+            {
+                List<Bills> allBills = _billsRepository.GetAllBills().Where(b => b.Name != month).ToList();
+                List<Bills> selectBills = allBills.Where(x => x.Sum != sum).ToList();
+
+                File.Delete(file1);
+                using (StreamWriter file = new StreamWriter(file1, false))
+                {
+                    foreach (var registeredBill in selectBills)
+                    {
+                        file.WriteLine
+                        ($"{registeredBill.Id};{registeredBill.Name};{registeredBill.DateTimePay};{registeredBill.Sum};" +
+                        $"{registeredBill.BlockEnergy};{registeredBill.Heating};" +
+                         $"{registeredBill.ColdWater};{registeredBill.HeatingWater};" +
+                        $"{registeredBill.RenovationFund}");
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            return true;
         }
     }
 }

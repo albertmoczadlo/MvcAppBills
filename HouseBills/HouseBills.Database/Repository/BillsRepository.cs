@@ -9,7 +9,7 @@ namespace HouseBills
     public class BillsRepository: IBillsRepository
     {
 
-        private readonly string fileName = @"C:\Users\Albert\source\repos\HouseBills\rachunek.csv";
+        private readonly string fileName = @"C:\Users\Albert\Desktop\Bills\HouseBills\rachunek.csv";
 
         public Bills AddBill(Bills bill)
         {

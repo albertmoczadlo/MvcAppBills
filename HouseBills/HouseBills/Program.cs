@@ -20,7 +20,9 @@ using System.Runtime.CompilerServices;
 
 
 IBillsRepository billsRepository = new BillsRepository();
-IBillService billService = new BillServices(billsRepository);
+Bills bills = new Bills();
+
+IBillService billService = new BillServices(billsRepository,bills);
 
 MenuServices menuServices = new MenuServices(billService,billsRepository);
 
