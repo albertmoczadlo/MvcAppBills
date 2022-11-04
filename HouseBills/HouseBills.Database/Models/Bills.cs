@@ -11,7 +11,7 @@ namespace HouseBills
     {
 
         public Guid Id { get; set; } 
-        public string Name { get; set; }
+        public string Month { get; set; }
         public string DateTimePay { get; set; }
         public decimal Sum { get; set; }
         public decimal BlockEnergy { get; set; }
@@ -23,7 +23,7 @@ namespace HouseBills
         public override string ToString()
         {
             return
-                $"{Name, 9} |"+
+                $"{Month, 9} |"+
                 $"{DateTimePay,6} |" +
                 $"{Sum,6} |" +
                 $"{BlockEnergy,6} |" +

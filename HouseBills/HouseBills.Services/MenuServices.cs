@@ -54,18 +54,18 @@ namespace HouseBills.Services
                             break;
                         }
 
-                        Console.WriteLine("\nMiesiąc      Data         Razem    Elekt    Centr    ZimWod   Podgrz    FunRem\n");
+                        Console.WriteLine("\nMiesiąc      Data          Razem        Elekt       Centr       ZimWod       Podgrz      FunRem\n");
 
                         foreach (var item in monthList)
                         {
-                            if (item.Name == month)
+                            if (item.Month == month)
                             {
-                                Console.WriteLine($"{item.Name}  |  {item.DateTimePay}  |    {item.Sum}  |    {item.BlockEnergy}  |    {item.Heating}  |" +
+                                Console.WriteLine($"{item.Month}  |  {item.DateTimePay}  |    {item.Sum}  |    {item.BlockEnergy}  |    {item.Heating}  |" +
                                 $"   {item.ColdWater}   |    {item.HeatingWater}   |    {item.RenovationFund}  |");
                             }
                         }
 
-                        Console.WriteLine("Kolejny miesiąc wciśnij y, wyjście n\n");
+                        Console.WriteLine("\nKolejny miesiąc wciśnij y, wyjście n\n");
                         string option = Console.ReadLine();
 
                         if (option != "y")

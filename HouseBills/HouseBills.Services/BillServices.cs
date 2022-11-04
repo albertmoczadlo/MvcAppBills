@@ -6,7 +6,7 @@ namespace HouseBills
     public class BillServices : IBillService
     {
 
-        private readonly string file1 = @"C:\Users\Albert\source\repos\HouseBills\rachunek.csv";
+        private readonly string file1 = @"C:\Users\Albert\source\repos\HouseBills\Bills.csv";
 
         private IBillsRepository _billsRepository;
         private Bills _bills;
@@ -27,7 +27,7 @@ namespace HouseBills
             _bills.DateTimePay = datFormat;
 
             Console.WriteLine("Miesiąc:");
-            _bills.Name = Console.ReadLine();
+            _bills.Month = Console.ReadLine();
 
             Console.WriteLine("Razem:");
             _bills.Sum = Helpers.DecimalParse(Console.ReadLine());
@@ -67,7 +67,7 @@ namespace HouseBills
         {
             List<Bills> list = _billsRepository.GetAllBills();
 
-            var listMonth = list.Where(x => x.Name == input).OrderByDescending(x => x.Sum);
+            var listMonth = list.Where(x => x.Month == input).OrderByDescending(x => x.Sum);
 
             return listMonth;
         }
@@ -98,7 +98,7 @@ namespace HouseBills
         {
             try
             {
-                List<Bills> allBills = _billsRepository.GetAllBills().Where(b => b.Name != month).ToList();
+                List<Bills> allBills = _billsRepository.GetAllBills().Where(b => b.Month != month).ToList();
                 List<Bills> selectBills = allBills.Where(x => x.Sum != sum).ToList();
 
                 File.Delete(file1);
@@ -107,7 +107,7 @@ namespace HouseBills
                     foreach (var registeredBill in selectBills)
                     {
                         file.WriteLine
-                        ($"{registeredBill.Id};{registeredBill.Name};{registeredBill.DateTimePay};{registeredBill.Sum};" +
+                        ($"{registeredBill.Id};{registeredBill.Month};{registeredBill.DateTimePay};{registeredBill.Sum};" +
                         $"{registeredBill.BlockEnergy};{registeredBill.Heating};" +
                          $"{registeredBill.ColdWater};{registeredBill.HeatingWater};" +
                         $"{registeredBill.RenovationFund}");

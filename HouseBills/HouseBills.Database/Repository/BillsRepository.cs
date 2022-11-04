@@ -9,7 +9,7 @@ namespace HouseBills
     public class BillsRepository: IBillsRepository
     {
 
-        private readonly string fileName = @"C:\Users\Albert\Desktop\Bills\HouseBills\rachunek.csv";
+        private readonly string fileName = @"C:\Users\Albert\Desktop\Bills\HouseBills\Bills.csv";
 
         public Bills AddBill(Bills bill)
         {
@@ -17,7 +17,7 @@ namespace HouseBills
             var registeredBill = new Bills
             {
                 Id = id,
-                Name = bill.Name,
+                Month = bill.Month,
                 DateTimePay = bill.DateTimePay,
                 Sum = bill.Sum,
                 BlockEnergy = bill.BlockEnergy,
@@ -31,7 +31,7 @@ namespace HouseBills
             {
                 
                 file.WriteLine
-                    ($"{registeredBill.Id};{registeredBill.Name};{registeredBill.DateTimePay};{registeredBill.Sum};"+
+                    ($"{registeredBill.Id};{registeredBill.Month};{registeredBill.DateTimePay};{registeredBill.Sum};"+
                     $"{registeredBill.BlockEnergy};{registeredBill.Heating};" +
                      $"{registeredBill.ColdWater};{registeredBill.HeatingWater};" +
                         $"{registeredBill.RenovationFund}");
@@ -52,7 +52,7 @@ namespace HouseBills
                     new Bills 
                     { 
                         Id =Guid.Parse(columns[0]),
-                        Name = columns[1],
+                        Month = columns[1],
                         DateTimePay =columns[2], 
                         Sum =decimal.Parse(columns[3]),
                         BlockEnergy = decimal.Parse(columns[4]),
