@@ -10,6 +10,12 @@ namespace HouseBills
     {
 
         private readonly string fileName = @"C:\Users\Albert\Desktop\Bills\HouseBills\Bills.csv";
+        private readonly IBillsRepository _billsRepository;
+
+        public BillsRepository(IBillsRepository billsRepository)
+        {
+            _billsRepository= billsRepository;
+        }
 
         public Bills AddBill(Bills bill)
         {

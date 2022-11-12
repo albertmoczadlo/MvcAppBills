@@ -19,6 +19,11 @@ namespace HouseBills.Services
             _billsRepository = billsRepository;
         }
 
+        public MenuServices()
+        {
+
+        }
+
 
         public void MenuAction()
         {

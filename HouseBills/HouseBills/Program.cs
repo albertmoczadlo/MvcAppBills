@@ -10,21 +10,20 @@ using System.Runtime.CompilerServices;
 
 //IBillsRepository billsRepository = new BillsRepository();
 
-//BillServices billServices = new BillServices(billsRepository);
 
-//billServices.RegisterBill();
+var builder = Host.CreateDefaultBuilder();
 
-//Console.WriteLine("");
+builder.ConfigureServices(services =>
+services
+.AddScoped<IBillService, BillServices>()
+.AddScoped<IBillsRepository, BillsRepository>());
 
-//billServices.ShowList();
+using var host = builder.Build();
+
+host.Run();
 
 
-IBillsRepository billsRepository = new BillsRepository();
-Bills bills = new Bills();
-
-IBillService billService = new BillServices(billsRepository,bills);
-
-MenuServices menuServices = new MenuServices(billService,billsRepository);
+MenuServices menuServices = new MenuServices();
 
 menuServices.MenuAction();
 
