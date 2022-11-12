@@ -1,17 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace HouseBills.Services
 {
     public class MenuServices
-    {
-        //BillServices _billServices = new BillServices(new BillsRepository());
+    { 
 
         private readonly IBillService _billServices;
-        //private readonly IBillsRepository _billsRepository;
 
         public MenuServices(IBillService billService)
         {

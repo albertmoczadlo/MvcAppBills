@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace HouseBills
 {
     public class Bills
     {
-
         public Guid Id { get; set; } 
         public string Month { get; set; }
         public string DateTimePay { get; set; }
