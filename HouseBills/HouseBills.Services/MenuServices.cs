@@ -11,12 +11,11 @@ namespace HouseBills.Services
         //BillServices _billServices = new BillServices(new BillsRepository());
 
         private readonly IBillService _billServices;
-        private readonly IBillsRepository _billsRepository;
+        //private readonly IBillsRepository _billsRepository;
 
-        public MenuServices(IBillService billService, IBillsRepository billsRepository)
+        public MenuServices(IBillService billService)
         {
             _billServices = billService;
-            _billsRepository = billsRepository;
         }
 
        
