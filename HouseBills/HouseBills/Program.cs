@@ -8,22 +8,23 @@ using System.Runtime.CompilerServices;
 
 //Console.WriteLine("Hello, World!");
 
-//IBillsRepository billsRepository = new BillsRepository();
+using IHost host = Host.CreateDefaultBuilder()
+    .ConfigureServices((_, services) =>
+        services         
+            .AddScoped<IBillsRepository, BillsRepository>()
+            .AddScoped<IBillService, BillServices>()
+            .AddSingleton<MenuServices>()
+            )
+    .Build();
+
+host.Services.GetRequiredService<MenuServices>().MenuAction();
 
 
-var builder = Host.CreateDefaultBuilder();
-
-builder.ConfigureServices(services =>
-services
-.AddScoped<IBillService, BillServices>()
-.AddScoped<IBillsRepository, BillsRepository>());
-
-using var host = builder.Build();
-
-host.Run();
 
 
-MenuServices menuServices = new MenuServices();
 
-menuServices.MenuAction();
+
+
+
+
 

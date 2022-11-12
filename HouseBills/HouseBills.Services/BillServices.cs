@@ -6,15 +6,14 @@ namespace HouseBills
     public class BillServices : IBillService
     {
 
-        private readonly string file1 = @"C:\Users\Albert\source\repos\HouseBills\Bills.csv";
+        private readonly string file1 = @"C:Users\Albert\Desktop\Bills\HouseBills\Bills.csv";
 
-        private IBillsRepository _billsRepository;
+        private readonly IBillsRepository _billsRepository;
         private Bills _bills;
 
-        public BillServices(IBillsRepository billsRepository, Bills bills)
+        public BillServices(IBillsRepository billsRepository)
         {
             _billsRepository = billsRepository;
-            _bills = bills;
         }
 
         public void RegisterBill()

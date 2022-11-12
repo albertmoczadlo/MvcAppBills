@@ -19,12 +19,7 @@ namespace HouseBills.Services
             _billsRepository = billsRepository;
         }
 
-        public MenuServices()
-        {
-
-        }
-
-
+       
         public void MenuAction()
         {
             Console.WriteLine("Wybierz operacje:");
