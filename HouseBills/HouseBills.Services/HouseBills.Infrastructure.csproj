@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\HouseBills.Database\HouseBills.Database.csproj" />
+    <ProjectReference Include="..\HouseBills.Database\HouseBills.Domain.csproj" />
   </ItemGroup>
 
 </Project>

@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HouseBills", "HouseBills\HouseBills.csproj", "{C270B709-755E-4719-97DD-90406CBAEEF5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HouseBills.Application", "HouseBills\HouseBills.Application.csproj", "{C270B709-755E-4719-97DD-90406CBAEEF5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HouseBills.Database", "HouseBills.Database\HouseBills.Database.csproj", "{2D613E26-EEC1-494F-A04C-E3DC95293DD1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HouseBills.Domain", "HouseBills.Database\HouseBills.Domain.csproj", "{2D613E26-EEC1-494F-A04C-E3DC95293DD1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HouseBills.Services", "HouseBills.Services\HouseBills.Services.csproj", "{0B9224BC-CF6E-495E-AC41-12A5C3E7181D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HouseBills.Infrastructure", "HouseBills.Services\HouseBills.Infrastructure.csproj", "{0B9224BC-CF6E-495E-AC41-12A5C3E7181D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{75804D11-D269-436D-8608-621D3647060A}"
 EndProject
