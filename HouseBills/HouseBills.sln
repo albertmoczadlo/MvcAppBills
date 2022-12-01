@@ -21,6 +21,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{10EC2ED3-BD4C-
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HouseBills.Tests", "HouseBills.Tests\HouseBills.Tests.csproj", "{5B127B99-92EC-40F9-8E99-465AAF14E237}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HouseBills.WebMvc", "HouseBills.WebMvc\HouseBills.WebMvc.csproj", "{A295F384-737E-4E48-A389-5E6A694E5A51}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +45,10 @@ Global
 		{5B127B99-92EC-40F9-8E99-465AAF14E237}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5B127B99-92EC-40F9-8E99-465AAF14E237}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5B127B99-92EC-40F9-8E99-465AAF14E237}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A295F384-737E-4E48-A389-5E6A694E5A51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A295F384-737E-4E48-A389-5E6A694E5A51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A295F384-737E-4E48-A389-5E6A694E5A51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A295F384-737E-4E48-A389-5E6A694E5A51}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -52,6 +58,7 @@ Global
 		{2D613E26-EEC1-494F-A04C-E3DC95293DD1} = {03F3D979-65C9-43EE-A67C-901691C8FC82}
 		{0B9224BC-CF6E-495E-AC41-12A5C3E7181D} = {CAEF3267-C662-48CB-B173-B2598D8C5EBA}
 		{5B127B99-92EC-40F9-8E99-465AAF14E237} = {5B29465F-A634-4CEB-AB66-A8D4689F1470}
+		{A295F384-737E-4E48-A389-5E6A694E5A51} = {10EC2ED3-BD4C-4F8C-A765-612039582E04}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F8CB477C-2502-404B-96BF-78F8851BDC2B}
