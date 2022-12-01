@@ -14,6 +14,7 @@ public class HouseBillsWebMvcDbContext : IdentityDbContext<UserApp>
     public HouseBillsWebMvcDbContext(DbContextOptions<HouseBillsWebMvcDbContext> options)
         : base(options)
     {
+        
     }
 
     protected override void OnModelCreating(ModelBuilder builder)
@@ -31,6 +32,7 @@ public class AppUserEntityConfiguration : IEntityTypeConfiguration<UserApp>
 {
     public void Configure(EntityTypeBuilder<UserApp> builder)
     {
+        
         builder.Property(p => p.FirstName).HasMaxLength(50);
         builder.Property(p => p.LastName).HasMaxLength(50);
     }

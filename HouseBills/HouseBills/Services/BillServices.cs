@@ -1,8 +1,9 @@
-﻿using HouseBills.Services;
+﻿using HouseBills.Domain.Models;
+using HouseBills.Services;
 
 namespace HouseBills.Application.Services
 {
-    public class BillServices : IBillService
+    public class BillServices 
     {
 
         private readonly string file1 = @"C:Users\Albert\Desktop\Bills\HouseBills\Bills.csv";
@@ -15,39 +16,39 @@ namespace HouseBills.Application.Services
             _billsRepository = billsRepository;
         }
 
-        public void RegisterBill()
-        {
-            DateTime data = new DateTime();
+        //public void RegisterBill()
+        //{
+        //    DateTime data = new DateTime();
 
-            Console.WriteLine($"Data: dd.MM.yyyy");
-            var datConsole = Console.ReadLine();
-            var datFormat = data.ToString(datConsole);
-            _bills.DateTimePay = datFormat;
+        //    Console.WriteLine($"Data: dd.MM.yyyy");
+        //    var datConsole = Console.ReadLine();
+        //    var datFormat = data.ToString(datConsole);
+        //    _bills.DateTimePay = datFormat;
 
-            Console.WriteLine("Miesiąc:");
-            _bills.Month = Console.ReadLine();
+        //    Console.WriteLine("Miesiąc:");
+        //    _bills.Month = Console.ReadLine();
 
-            Console.WriteLine("Razem:");
-            _bills.Sum = Helpers.DecimalParse(Console.ReadLine());
+        //    Console.WriteLine("Razem:");
+        //    _bills.Sum = Helpers.DecimalParse(Console.ReadLine());
 
-            Console.WriteLine("Energia elektryczna:");
-            _bills.BlockEnergy = Helpers.DecimalParse(Console.ReadLine());
+        //    Console.WriteLine("Energia elektryczna:");
+        //    _bills.BlockEnergy = Helpers.DecimalParse(Console.ReadLine());
 
-            Console.WriteLine("Centralne ogrzewanie:");
-            _bills.Heating = Helpers.DecimalParse(Console.ReadLine());
+        //    Console.WriteLine("Centralne ogrzewanie:");
+        //    _bills.Heating = Helpers.DecimalParse(Console.ReadLine());
 
-            Console.WriteLine("Zimna woda:");
-            _bills.ColdWater = Helpers.DecimalParse(Console.ReadLine());
+        //    Console.WriteLine("Zimna woda:");
+        //    _bills.ColdWater = Helpers.DecimalParse(Console.ReadLine());
 
-            Console.WriteLine("Podgrzanie wody:");
-            _bills.HeatingWater = Helpers.DecimalParse(Console.ReadLine());
+        //    Console.WriteLine("Podgrzanie wody:");
+        //    _bills.HeatingWater = Helpers.DecimalParse(Console.ReadLine());
 
-            Console.WriteLine("Fundusz remontowy");
-            _bills.RenovationFund = Helpers.DecimalParse(Console.ReadLine());
+        //    Console.WriteLine("Fundusz remontowy");
+        //    _bills.RenovationFund = Helpers.DecimalParse(Console.ReadLine());
 
 
-            _billsRepository.AddBill(_bills);
-        }
+        //    _billsRepository.AddBill(_bills);
+        //}
         public void ShowList()
         {
             List<Bills> list = _billsRepository.GetAllBills();

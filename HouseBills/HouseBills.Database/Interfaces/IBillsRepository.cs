@@ -1,4 +1,6 @@
 ﻿
+using HouseBills.Domain.Models;
+
 namespace HouseBills
 {
     public interface IBillsRepository

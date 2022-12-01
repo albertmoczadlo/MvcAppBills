@@ -9,7 +9,7 @@ var connectionString = builder.Configuration.GetConnectionString("HouseBillsWebM
 builder.Services.AddDbContext<HouseBillsWebMvcDbContext>(options =>
     options.UseSqlServer(connectionString));
 
-builder.Services.AddDefaultIdentity<UserApp>(options => options.SignIn.RequireConfirmedAccount = true)
+builder.Services.AddDefaultIdentity<UserApp>(options => options.SignIn.RequireConfirmedAccount = false)
     .AddEntityFrameworkStores<HouseBillsWebMvcDbContext>();
 
 // Add services to the container.

@@ -7,9 +7,7 @@ using Microsoft.Extensions.Hosting;
 
 using IHost host = Host.CreateDefaultBuilder()
     .ConfigureServices((_, services) =>
-        services         
-            
-            .AddScoped<IBillService, BillServices>()
+        services  
             .AddSingleton<MenuServices>()
             )
     .Build();

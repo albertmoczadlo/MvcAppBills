@@ -1,5 +1,7 @@
 ﻿
 
+using HouseBills.Domain.Models;
+
 namespace HouseBills.Services
 {
     public interface IBillService

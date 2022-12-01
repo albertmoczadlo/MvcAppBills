@@ -1,7 +1,9 @@
 ﻿
+using HouseBills.Domain.Models;
+
 namespace HouseBills
 {
-    public class BillsRepository: IBillsRepository
+    public class BillsRepository
     {
 
         private readonly string fileName = @"C:\Users\Albert\Desktop\Bills\HouseBills\Bills.csv";
@@ -34,30 +36,30 @@ namespace HouseBills
             return registeredBill;
         }
 
-        public List<Bills> GetAllBills()
-        {
-            List<Bills> bills = new List<Bills>();
+        //public List<Bills> GetAllBills()
+        //{
+        //    List<Bills> bills = new List<Bills>();
 
-            var usersFromFile = File.ReadAllLines(fileName);
-            foreach (var line in usersFromFile)
-            { 
-                string[] columns = line.Split(';');
-                if(columns.Length==9)
-                bills.Add(
-                    new Bills 
-                    { 
-                        Id =Guid.Parse(columns[0]),
-                        Month = columns[1],
-                        DateTimePay =columns[2], 
-                        Sum =decimal.Parse(columns[3]),
-                        BlockEnergy = decimal.Parse(columns[4]),
-                        Heating = decimal.Parse(columns[5]),
-                        ColdWater = decimal.Parse(columns[6]),
-                        HeatingWater = decimal.Parse(columns[7]),
-                        RenovationFund = decimal.Parse(columns[8])
-                    });
-            }
-            return bills;
-        }
+        //    var usersFromFile = File.ReadAllLines(fileName);
+        //    foreach (var line in usersFromFile)
+        //    { 
+        //        string[] columns = line.Split(';');
+        //        if(columns.Length==9)
+        //        bills.Add(
+        //            new Bills 
+        //            { 
+        //                Id =Guid.Parse(columns[0]),
+        //                Month = columns[1],
+        //                DateTimePay =columns[2].ToString(), 
+        //                Sum =decimal.Parse(columns[3]),
+        //                BlockEnergy = decimal.Parse(columns[4]),
+        //                Heating = decimal.Parse(columns[5]),
+        //                ColdWater = decimal.Parse(columns[6]),
+        //                HeatingWater = decimal.Parse(columns[7]),
+        //                RenovationFund = decimal.Parse(columns[8])
+        //            });
+        //    }
+        //    return bills;
+        //}
     }
 }
