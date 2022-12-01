@@ -1,4 +1,6 @@
 ﻿
+using HouseBills.Domain.Models;
+
 namespace HouseBills
 {
     public class Bills
@@ -12,6 +14,9 @@ namespace HouseBills
         public decimal ColdWater { get; set; }
         public decimal HeatingWater { get; set; }
         public decimal RenovationFund { get; set; }
-      
+        public UserApp UserAppId { get; set; }
+
+        public UserApp UserApps { get; set;}
+
     }
 }

@@ -1,7 +1,8 @@
-﻿@using Microsoft.AspNetCore.Identity
+﻿@using HouseBills.Domain.Models;
+@using Microsoft.AspNetCore.Identity
 
-@inject SignInManager<IdentityUser> SignInManager
-@inject UserManager<IdentityUser> UserManager
+@inject SignInManager<UserApp> SignInManager
+@inject UserManager<UserApp> UserManager
 
 <ul class="navbar-nav">
 @if (SignInManager.IsSignedIn(User))
