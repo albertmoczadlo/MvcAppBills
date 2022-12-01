@@ -1,11 +1,12 @@
 ﻿
 using HouseBills.Domain.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace HouseBills
 {
     public class Bills
     {
-        public Guid Id { get; set; } 
+        public int Id { get; set; } 
         public string Month { get; set; }
         public string DateTimePay { get; set; }
         public decimal Sum { get; set; }
