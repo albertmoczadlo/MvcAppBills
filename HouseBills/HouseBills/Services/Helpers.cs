@@ -1,5 +1,4 @@
-﻿
-namespace HouseBills.Services
+﻿namespace HouseBills.Application.Services
 {
     public static class Helpers
     {
@@ -8,7 +7,7 @@ namespace HouseBills.Services
             decimal result = 0;
             while (true)
             {
-                if(decimal.TryParse(input, out result))
+                if (decimal.TryParse(input, out result))
                 {
                     break;
                 }
@@ -48,7 +47,7 @@ namespace HouseBills.Services
                     Console.Clear();
                     return true;
                 }
-                else if(select.Equals("n",StringComparison.CurrentCulture))
+                else if (select.Equals("n", StringComparison.CurrentCulture))
                 {
                     Console.Clear();
                     return false;

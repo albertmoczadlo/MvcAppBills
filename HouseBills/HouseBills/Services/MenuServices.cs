@@ -1,8 +1,9 @@
-﻿
-namespace HouseBills.Services
+﻿using HouseBills.Services;
+
+namespace HouseBills.Application.Services
 {
     public class MenuServices
-    { 
+    {
 
         private readonly IBillService _billServices;
 
@@ -11,7 +12,7 @@ namespace HouseBills.Services
             _billServices = billService;
         }
 
-       
+
         public void MenuAction()
         {
             Console.WriteLine("Wybierz operacje:");

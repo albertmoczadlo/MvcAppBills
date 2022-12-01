@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\HouseBills.Services\HouseBills.Infrastructure.csproj" />
+    <ProjectReference Include="..\HouseBills.Database\HouseBills.Domain.csproj" />
   </ItemGroup>
 
 </Project>

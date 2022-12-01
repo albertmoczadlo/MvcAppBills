@@ -1,6 +1,6 @@
 ﻿using HouseBills.Services;
 
-namespace HouseBills
+namespace HouseBills.Application.Services
 {
     public class BillServices : IBillService
     {

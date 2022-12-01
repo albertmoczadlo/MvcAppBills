@@ -12,18 +12,6 @@ namespace HouseBills
         public decimal ColdWater { get; set; }
         public decimal HeatingWater { get; set; }
         public decimal RenovationFund { get; set; }
-
-        public override string ToString()
-        {
-            return
-                $"{Month, 9} |"+
-                $"{DateTimePay,6} |" +
-                $"{Sum,6} |" +
-                $"{BlockEnergy,6} |" +
-                $"{Heating,6} |" +
-                $"{ColdWater,6} |" +
-                $"{HeatingWater,6} |" +
-                $"{RenovationFund,6} |";
-        }
+      
     }
 }
