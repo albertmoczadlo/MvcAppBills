@@ -3,3 +3,8 @@
 ################################################################################
 
 /.vs/AppGit/v17
+/HouseBills/HouseBills.WebMvc/Properties
+/HouseBills/HouseBills.WebMvc/wwwroot/lib
+/HouseBills/HouseBills.WebMvc/wwwroot
+/HouseBills/HouseBills.WebMvc/appsettings.json
+/HouseBills/HouseBills.WebMvc/appsettings.Development.json
