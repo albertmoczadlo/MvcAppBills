@@ -3,11 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HouseBills", "HouseBills\HouseBills.csproj", "{C270B709-755E-4719-97DD-90406CBAEEF5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HouseBills", "HouseBills\HouseBills.csproj", "{C270B709-755E-4719-97DD-90406CBAEEF5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HouseBills.Database", "HouseBills.Database\HouseBills.Database.csproj", "{2D613E26-EEC1-494F-A04C-E3DC95293DD1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HouseBills.Database", "HouseBills.Database\HouseBills.Database.csproj", "{2D613E26-EEC1-494F-A04C-E3DC95293DD1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HouseBills.Services", "HouseBills.Services\HouseBills.Services.csproj", "{0B9224BC-CF6E-495E-AC41-12A5C3E7181D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HouseBills.Services", "HouseBills.Services\HouseBills.Services.csproj", "{0B9224BC-CF6E-495E-AC41-12A5C3E7181D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{75804D11-D269-436D-8608-621D3647060A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{03F3D979-65C9-43EE-A67C-901691C8FC82}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{CAEF3267-C662-48CB-B173-B2598D8C5EBA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{5B29465F-A634-4CEB-AB66-A8D4689F1470}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{10EC2ED3-BD4C-4F8C-A765-612039582E04}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
