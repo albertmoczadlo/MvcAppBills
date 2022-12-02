@@ -16,7 +16,7 @@ namespace HouseBills.Domain.Models
         public decimal RenovationFund { get; set; }
         public string UserAppId { get; set; }
 
-        public UserApp UserApps { get; set; }
+        public virtual UserApp UserApps { get; set; }
 
 
 
