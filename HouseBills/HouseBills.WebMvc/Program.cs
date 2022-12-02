@@ -1,9 +1,13 @@
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using HouseBills.WebMvc.Areas.Identity.Data;
 using HouseBills.Domain.Models;
+using Microsoft.Extensions.DependencyInjection;
+using HouseBills;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<HouseBillsWebMvcDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("HouseBillsWebMvcDbContextConnection") ?? throw new InvalidOperationException("Connection string 'WebMvcDbHouseBillsWebMvcContext' not found.")));
 var connectionString = builder.Configuration.GetConnectionString("HouseBillsWebMvcDbContextConnection") ?? throw new InvalidOperationException("Connection string 'HouseBillsWebMvcDbContextConnection' not found.");
 
 builder.Services.AddDbContext<HouseBillsWebMvcDbContext>(options =>

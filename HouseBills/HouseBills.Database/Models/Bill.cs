@@ -1,5 +1,7 @@
 ﻿
 
+using Microsoft.AspNetCore.Identity;
+
 namespace HouseBills.Domain.Models
 {
     public class Bill
@@ -14,7 +16,7 @@ namespace HouseBills.Domain.Models
         public decimal ColdWater { get; set; }
         public decimal HeatingWater { get; set; }
         public decimal RenovationFund { get; set; }
-        public string UserAppId { get; set; }
+        public string UserId { get; set; }
 
         public virtual UserApp UserApps { get; set; }
 
