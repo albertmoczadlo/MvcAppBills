@@ -9,7 +9,6 @@ namespace HouseBills.WebMvc.Areas.Identity.Data;
 public class HouseBillsWebMvcDbContext : IdentityDbContext<UserApp>
 {
     public DbSet<Bill> Bills { get; set; } = default!;
-  
 
     public HouseBillsWebMvcDbContext(DbContextOptions<HouseBillsWebMvcDbContext> options)
         : base(options)
