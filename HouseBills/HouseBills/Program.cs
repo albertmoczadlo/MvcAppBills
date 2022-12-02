@@ -11,8 +11,7 @@ using IHost host = Host.CreateDefaultBuilder()
             .AddSingleton<MenuServices>()
             )
     .Build();
-
-host.Services.GetRequiredService<MenuServices>().MenuAction();
+//host.Services.GetRequiredService<MenuServices>().MenuAction();
 
 
 

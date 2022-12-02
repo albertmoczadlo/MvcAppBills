@@ -51,25 +51,6 @@ namespace HouseBills.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Bill",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Month = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    DateTimePay = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Sum = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    BlockEnergy = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    Heating = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    ColdWater = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    HeatingWater = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    RenovationFund = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Bill", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",
                 columns: table => new
                 {
@@ -231,9 +212,6 @@ namespace HouseBills.Infrastructure.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
-
-            migrationBuilder.DropTable(
-                name: "Bill");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

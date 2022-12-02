@@ -8,9 +8,6 @@ namespace HouseBills.WebMvc.Areas.Identity.Data;
 
 public class HouseBillsWebMvcDbContext : IdentityDbContext<UserApp>
 {
-
-    public DbSet<Bills> Bill { get; set; }
-
     public HouseBillsWebMvcDbContext(DbContextOptions<HouseBillsWebMvcDbContext> options)
         : base(options)
     {

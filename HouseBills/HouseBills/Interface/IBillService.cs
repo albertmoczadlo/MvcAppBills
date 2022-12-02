@@ -8,6 +8,6 @@ namespace HouseBills.Services
     {
         void RegisterBill();
         void ShowList();
-        IEnumerable<Bills> ShowMonth(string input);
+       // IEnumerable<Bills> ShowMonth(string input);
     }
 }

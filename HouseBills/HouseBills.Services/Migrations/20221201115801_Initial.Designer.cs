@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HouseBills.Infrastructure.Migrations
 {
     [DbContext(typeof(HouseBillsWebMvcDbContext))]
-    [Migration("20221201113541_Initial")]
+    [Migration("20221201115801_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -23,42 +23,6 @@ namespace HouseBills.Infrastructure.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
-
-            modelBuilder.Entity("HouseBills.Domain.Models.Bills", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<decimal>("BlockEnergy")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<decimal>("ColdWater")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<DateTime>("DateTimePay")
-                        .HasColumnType("datetime2");
-
-                    b.Property<decimal>("Heating")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<decimal>("HeatingWater")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<string>("Month")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<decimal>("RenovationFund")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<decimal>("Sum")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Bill");
-                });
 
             modelBuilder.Entity("HouseBills.Domain.Models.UserApp", b =>
                 {

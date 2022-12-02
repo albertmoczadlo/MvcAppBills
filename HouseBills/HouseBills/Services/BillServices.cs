@@ -9,7 +9,7 @@ namespace HouseBills.Application.Services
         private readonly string file1 = @"C:Users\Albert\Desktop\Bills\HouseBills\Bills.csv";
 
         private readonly IBillsRepository _billsRepository;
-        private Bills _bills;
+       // private Bills _bills;
 
         public BillServices(IBillsRepository billsRepository)
         {
@@ -49,75 +49,75 @@ namespace HouseBills.Application.Services
 
         //    _billsRepository.AddBill(_bills);
         //}
-        public void ShowList()
-        {
-            List<Bills> list = _billsRepository.GetAllBills();
+        //public void ShowList()
+        //{
+        //    List<Bills> list = _billsRepository.GetAllBills();
 
-            Console.WriteLine("   Miesiąc   Data       Razem    Elekt   Centr   ZimWod  Podgrz  FunRem\n");
+        //    Console.WriteLine("   Miesiąc   Data       Razem    Elekt   Centr   ZimWod  Podgrz  FunRem\n");
 
-            foreach (Bills bill in list)
-            {
-                Console.WriteLine($" {bill.ToString()}");
-            }
-            Console.WriteLine("");
-        }
+        //    foreach (Bills bill in list)
+        //    {
+        //        Console.WriteLine($" {bill.ToString()}");
+        //    }
+        //    Console.WriteLine("");
+        //}
 
-        public IEnumerable<Bills> ShowMonth(string input)
-        {
-            List<Bills> list = _billsRepository.GetAllBills();
+        //public IEnumerable<Bills> ShowMonth(string input)
+        //{
+        //    List<Bills> list = _billsRepository.GetAllBills();
 
-            var listMonth = list.Where(x => x.Month == input).OrderByDescending(x => x.Sum);
+        //    var listMonth = list.Where(x => x.Month == input).OrderByDescending(x => x.Sum);
 
-            return listMonth;
-        }
+        //    return listMonth;
+        //}
 
-        public static bool GetBackToMainMenuQuestion()
-        {
-            while (true)
-            {
-                Console.WriteLine("Go back to menu? Y/N");
+        //public static bool GetBackToMainMenuQuestion()
+        //{
+        //    while (true)
+        //    {
+        //        Console.WriteLine("Go back to menu? Y/N");
 
-                var selectedOption = Console.ReadLine();
-                if (selectedOption.Equals("y", StringComparison.InvariantCultureIgnoreCase))
-                {
-                    return true;
-                }
-                else if (selectedOption.Equals("n", StringComparison.InvariantCultureIgnoreCase))
-                {
-                    return false;
-                }
-                else
-                {
-                    Console.WriteLine("Wrong option");
-                }
-            }
-        }
+        //        var selectedOption = Console.ReadLine();
+        //        if (selectedOption.Equals("y", StringComparison.InvariantCultureIgnoreCase))
+        //        {
+        //            return true;
+        //        }
+        //        else if (selectedOption.Equals("n", StringComparison.InvariantCultureIgnoreCase))
+        //        {
+        //            return false;
+        //        }
+        //        else
+        //        {
+        //            Console.WriteLine("Wrong option");
+        //        }
+        //    }
+        //}
 
-        public bool DeleteBills(string month, decimal sum)
-        {
-            try
-            {
-                List<Bills> allBills = _billsRepository.GetAllBills().Where(b => b.Month != month).ToList();
-                List<Bills> selectBills = allBills.Where(x => x.Sum != sum).ToList();
+        //public bool DeleteBills(string month, decimal sum)
+        //{
+        //    try
+        //    {
+        //        List<Bills> allBills = _billsRepository.GetAllBills().Where(b => b.Month != month).ToList();
+        //        List<Bills> selectBills = allBills.Where(x => x.Sum != sum).ToList();
 
-                File.Delete(file1);
-                using (StreamWriter file = new StreamWriter(file1, false))
-                {
-                    foreach (var registeredBill in selectBills)
-                    {
-                        file.WriteLine
-                        ($"{registeredBill.Id};{registeredBill.Month};{registeredBill.DateTimePay};{registeredBill.Sum};" +
-                        $"{registeredBill.BlockEnergy};{registeredBill.Heating};" +
-                         $"{registeredBill.ColdWater};{registeredBill.HeatingWater};" +
-                        $"{registeredBill.RenovationFund}");
-                    }
-                }
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-            return true;
-        }
+        //        File.Delete(file1);
+        //        using (StreamWriter file = new StreamWriter(file1, false))
+        //        {
+        //            foreach (var registeredBill in selectBills)
+        //            {
+        //                file.WriteLine
+        //                ($"{registeredBill.Id};{registeredBill.Month};{registeredBill.DateTimePay};{registeredBill.Sum};" +
+        //                $"{registeredBill.BlockEnergy};{registeredBill.Heating};" +
+        //                 $"{registeredBill.ColdWater};{registeredBill.HeatingWater};" +
+        //                $"{registeredBill.RenovationFund}");
+        //            }
+        //        }
+        //    }
+        //    catch (Exception)
+        //    {
+        //        return false;
+        //    }
+        //    return true;
+        //}
     }
 }
