@@ -1,4 +1,4 @@
-﻿using HouseBills.WebMvc.Areas.Identity.Data;
+﻿using HouseBills.Infrastructure;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 

@@ -1,10 +1,14 @@
-﻿using HouseBills.Domain.Models;
+﻿
+using HouseBills.Domain.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Microsoft.Extensions.Options;
 
-namespace HouseBills.WebMvc.Areas.Identity.Data;
+
+namespace HouseBills.Infrastructure;
 
 public class HouseBillsWebMvcDbContext : IdentityDbContext<UserApp>
 {
@@ -16,17 +20,18 @@ public class HouseBillsWebMvcDbContext : IdentityDbContext<UserApp>
         
     }
 
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        optionsBuilder.UseSqlServer(@"Server=localhost\SQLEXPRESS;Database=DataBills;Trusted_Connection=True;");
+    }
+
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
-        // Customize the ASP.NET Identity model and override the defaults if needed.
-        // For example, you can rename the ASP.NET Identity table names and more.
-        // Add your customizations after calling base.OnModelCreating(builder);
 
         builder.ApplyConfiguration(new AppUserEntityConfiguration());
     }
 }
-
 public class AppUserEntityConfiguration : IEntityTypeConfiguration<UserApp>
 {
     
@@ -37,3 +42,4 @@ public class AppUserEntityConfiguration : IEntityTypeConfiguration<UserApp>
         builder.Property(p => p.LastName).HasMaxLength(50);
     }
 }
+

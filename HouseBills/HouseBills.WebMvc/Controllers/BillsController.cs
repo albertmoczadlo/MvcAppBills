@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using HouseBills;
 using HouseBills.Domain.Models;
-using HouseBills.WebMvc.Areas.Identity.Data;
+using HouseBills.Infrastructure;
 
 namespace HouseBills.WebMvc.Controllers
 {

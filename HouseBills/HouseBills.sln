@@ -19,9 +19,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{5B29465F
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{10EC2ED3-BD4C-4F8C-A765-612039582E04}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HouseBills.Tests", "HouseBills.Tests\HouseBills.Tests.csproj", "{5B127B99-92EC-40F9-8E99-465AAF14E237}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HouseBills.Tests", "HouseBills.Tests\HouseBills.Tests.csproj", "{5B127B99-92EC-40F9-8E99-465AAF14E237}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HouseBills.WebMvc", "HouseBills.WebMvc\HouseBills.WebMvc.csproj", "{A295F384-737E-4E48-A389-5E6A694E5A51}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HouseBills.WebMvc", "HouseBills.WebMvc\HouseBills.WebMvc.csproj", "{A295F384-737E-4E48-A389-5E6A694E5A51}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
