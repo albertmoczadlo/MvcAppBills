@@ -13,11 +13,11 @@ namespace HouseBills.Infrastructure;
 public class HouseBillsWebMvcDbContext : IdentityDbContext<UserApp>
 {
     public DbSet<Bill> Bills { get; set; } = default!;
+    public DbSet<UserApp> Users { get; set; }
 
     public HouseBillsWebMvcDbContext(DbContextOptions<HouseBillsWebMvcDbContext> options)
         : base(options)
     {
-        
     }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

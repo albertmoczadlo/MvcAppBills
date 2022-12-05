@@ -3,11 +3,13 @@ using Microsoft.EntityFrameworkCore;
 using HouseBills.Infrastructure;
 using HouseBills.Domain.Models;
 using Microsoft.Extensions.DependencyInjection;
-using HouseBills.Infrastructure;
+
 using Microsoft.AspNetCore.Identity;
 using System.Configuration;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using HouseBills.Services;
+using SendGrid.Helpers.Mail;
+using SendGrid;
 
 var builder = WebApplication.CreateBuilder(args);
         builder.Services.AddDbContext<HouseBillsWebMvcDbContext>(options =>
@@ -25,8 +27,6 @@ var builder = WebApplication.CreateBuilder(args);
 
         builder.Services.AddTransient<IEmailSender, EmailSender>();
         builder.Services.Configure<AuthMessageSenderOptions>(builder.Configuration);
-
-
 
 // Add services to the container.
         builder.Services.AddControllersWithViews();
@@ -55,4 +55,4 @@ var builder = WebApplication.CreateBuilder(args);
 
         app.MapRazorPages();
 
-        app.Run();
+app.Run();
