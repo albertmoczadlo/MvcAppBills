@@ -1,0 +1,9 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/HouseBills/HouseBills.WebMvc/wwwroot
+/HouseBills/HouseBills.WebMvc/Properties
+/HouseBills/HouseBills.WebMvc/appsettings.json
+/HouseBills/HouseBills.WebMvc/appsettings.Development.json
+/.vs/AppGit/v17
