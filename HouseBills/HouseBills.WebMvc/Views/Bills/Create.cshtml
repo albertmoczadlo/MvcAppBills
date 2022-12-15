@@ -1,0 +1,79 @@
+﻿@model HouseBills.Domain.Models.Bill
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>Bill</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+           @* <div class="form-group">
+                <label asp-for="Id" class="control-label"></label>
+                <input asp-for="Id" class="form-control" />
+                <span asp-validation-for="Id" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateTimePay" class="control-label"></label>
+                <input asp-for="DateTimePay" class="form-control" />
+                <span asp-validation-for="DateTimePay" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Sum" class="control-label"></label>
+                <input asp-for="Sum" class="form-control" />
+                <span asp-validation-for="Sum" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BlockEnergy" class="control-label"></label>
+                <input asp-for="BlockEnergy" class="form-control" />
+                <span asp-validation-for="BlockEnergy" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Heating" class="control-label"></label>
+                <input asp-for="Heating" class="form-control" />
+                <span asp-validation-for="Heating" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ColdWater" class="control-label"></label>
+                <input asp-for="ColdWater" class="form-control" />
+                <span asp-validation-for="ColdWater" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HeatingWater" class="control-label"></label>
+                <input asp-for="HeatingWater" class="form-control" />
+                <span asp-validation-for="HeatingWater" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RenovationFund" class="control-label"></label>
+                <input asp-for="RenovationFund" class="form-control" />
+                <span asp-validation-for="RenovationFund" class="text-danger"></span>
+            </div>
+          @*  <div class="form-group">
+                <label asp-for="UserId" class="control-label"></label>
+                <input asp-for="UserId" class="form-control" />
+                <span asp-validation-for="UserId" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

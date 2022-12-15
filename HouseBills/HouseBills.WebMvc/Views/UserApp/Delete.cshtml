@@ -1,0 +1,22 @@
+﻿@model HouseBills.Domain.Models.UserApp;
+
+@{
+    ViewData["Title"] = $"Delete user";
+}
+
+<h2>Delete @Model.FirstName</h2>
+
+<p>Are you sure you want to delete user @Model.FirstName @Model.LastName ?</p>
+
+<div>
+    <hr />
+    <dl class="row">
+    </dl>
+
+    <form  asp-action="DeleteConfirmed">
+        <input type="hidden" value="@Model.Id" name="Id" />
+        <input type="submit" value="Delete" class="btn" />
+        <input type="button" value="Back to List" class="btn " onclick="location.href='@Url.Action("Index", "UserApp" )'" />
+    </form>
+</div>
+
