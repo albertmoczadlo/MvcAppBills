@@ -4,17 +4,24 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
+using Microsoft.EntityFrameworkCore.Infrastructure.Internal;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.Extensions.Options;
+using System.Reflection.Emit;
 
 
 namespace HouseBills.Infrastructure;
 
 public class HouseBillsWebMvcDbContext : IdentityDbContext<UserApp>
 {
-    public DbSet<Bill> Bills { get; set; } = default!;
-    public DbSet<UserApp> Users { get; set; }
+    public virtual DbSet<Bill> Bills { get; set; } = default!;
+    public virtual DbSet<UserApp> Users { get; set; }
 
+    public HouseBillsWebMvcDbContext()
+    {
+
+    }
     public HouseBillsWebMvcDbContext(DbContextOptions<HouseBillsWebMvcDbContext> options)
         : base(options)
     {
@@ -23,6 +30,8 @@ public class HouseBillsWebMvcDbContext : IdentityDbContext<UserApp>
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder.UseSqlServer(@"Server=localhost\SQLEXPRESS;Database=DataBills;Trusted_Connection=True;");
+        optionsBuilder.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
+        
     }
 
     protected override void OnModelCreating(ModelBuilder builder)
@@ -30,6 +39,9 @@ public class HouseBillsWebMvcDbContext : IdentityDbContext<UserApp>
         base.OnModelCreating(builder);
 
         builder.ApplyConfiguration(new AppUserEntityConfiguration());
+
+
+
     }
 }
 public class AppUserEntityConfiguration : IEntityTypeConfiguration<UserApp>
@@ -40,6 +52,8 @@ public class AppUserEntityConfiguration : IEntityTypeConfiguration<UserApp>
         
         builder.Property(p => p.FirstName).HasMaxLength(50);
         builder.Property(p => p.LastName).HasMaxLength(50);
+       
+        //builder.Property(c => c.Id).HasColumnName("ID").IsRequired();
     }
 }
 

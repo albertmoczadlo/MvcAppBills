@@ -1,13 +1,33 @@
 ﻿
 using HouseBills.Domain.Models;
+using HouseBills.Infrastructure;
 
 namespace HouseBills
 {
-    public class BillsRepository
+    public class BillsRepository : IBillsRepository
     {
+        private readonly HouseBillsWebMvcDbContext _mvcDbContext;
 
-        private readonly string fileName = @"C:\Users\Albert\Desktop\Bills\HouseBills\Bills.csv";
-        
+        public BillsRepository(HouseBillsWebMvcDbContext mvcDbContext)
+        {
+            _mvcDbContext= mvcDbContext;
+        }
+
+        public List<Bill> GetAllBills()
+        {
+            List<Bill> bills = _mvcDbContext.Bills.ToList();
+
+            return bills;
+        }
+
+        public Bill GetBillById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+
+
+
         //public Bills AddBill(Bills bill)
         //{
         //    Guid id = Guid.NewGuid();
@@ -26,7 +46,7 @@ namespace HouseBills
 
         //    using (StreamWriter file = new StreamWriter(fileName, true))
         //    {
-                
+
         //        file.WriteLine
         //            ($"{registeredBill.Id};{registeredBill.Month};{registeredBill.DateTimePay};{registeredBill.Sum};"+
         //            $"{registeredBill.BlockEnergy};{registeredBill.Heating};" +

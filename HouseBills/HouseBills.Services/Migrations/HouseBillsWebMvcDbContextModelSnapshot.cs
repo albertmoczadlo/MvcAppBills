@@ -70,7 +70,7 @@ namespace HouseBills.Infrastructure.Migrations
 
             modelBuilder.Entity("HouseBills.Domain.Models.UserApp", b =>
                 {
-                    b.Property<string>("Id")
+                    b.Property<int>("Id")
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("AccessFailedCount")
