@@ -15,8 +15,8 @@ namespace HouseBills.Infrastructure;
 
 public class HouseBillsWebMvcDbContext : IdentityDbContext<UserApp>
 {
-    public virtual DbSet<Bill> Bills { get; set; } = default!;
-    public virtual DbSet<UserApp> Users { get; set; }
+    public  DbSet<Bill> Bills { get; set; }
+    public DbSet<UserApp> Users { get; set; }
 
     public HouseBillsWebMvcDbContext()
     {
@@ -29,7 +29,7 @@ public class HouseBillsWebMvcDbContext : IdentityDbContext<UserApp>
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseSqlServer(@"Server=localhost\SQLEXPRESS;Database=DataBills;Trusted_Connection=True;");
+        optionsBuilder.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Bills; Integrated Security=True;Connect Timeout=30;Encrypt=False; TrustServerCertificate=False; ApplicationIntent=ReadWrite; MultiSubnetFailover=False;");
         optionsBuilder.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
         
     }

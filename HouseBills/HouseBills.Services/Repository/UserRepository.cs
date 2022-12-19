@@ -27,7 +27,9 @@ namespace HouseBills.Infrastructure.Repository
 
         public UserApp UsersGetById(string id)
         {
-            throw new NotImplementedException();
+            var user = _mvcDbContext.Users.FirstOrDefault(x => x.Id == id);
+
+            return user;
         }
     }
 }

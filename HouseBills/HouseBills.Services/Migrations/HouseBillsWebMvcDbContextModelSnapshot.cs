@@ -17,7 +17,7 @@ namespace HouseBills.Infrastructure.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.10")
+                .HasAnnotation("ProductVersion", "6.0.12")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
@@ -28,53 +28,25 @@ namespace HouseBills.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<decimal>("BlockEnergy")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<decimal>("ColdWater")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<string>("DateTimePay")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<decimal>("Heating")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<decimal>("HeatingWater")
-                        .HasColumnType("decimal(18,2)");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<decimal>("RenovationFund")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<decimal>("Sum")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<string>("UserAppsId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("UserAppsId");
 
                     b.ToTable("Bills");
                 });
 
             modelBuilder.Entity("HouseBills.Domain.Models.UserApp", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
+
+                    b.Property<Guid>("BillId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
@@ -131,6 +103,8 @@ namespace HouseBills.Infrastructure.Migrations
                         .HasColumnType("nvarchar(256)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("BillId");
 
                     b.HasIndex("NormalizedEmail")
                         .HasDatabaseName("EmailIndex");
@@ -280,13 +254,15 @@ namespace HouseBills.Infrastructure.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("HouseBills.Domain.Models.Bill", b =>
+            modelBuilder.Entity("HouseBills.Domain.Models.UserApp", b =>
                 {
-                    b.HasOne("HouseBills.Domain.Models.UserApp", "UserApps")
+                    b.HasOne("HouseBills.Domain.Models.Bill", "Bill")
                         .WithMany()
-                        .HasForeignKey("UserAppsId");
+                        .HasForeignKey("BillId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Navigation("UserApps");
+                    b.Navigation("Bill");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

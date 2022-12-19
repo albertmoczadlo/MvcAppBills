@@ -9,74 +9,67 @@ using HouseBills;
 using HouseBills.Domain.Models;
 using HouseBills.Infrastructure;
 
+
+
 namespace HouseBills.WebMvc.Controllers
 {
     public class BillsController : Controller
     {
-        //private readonly HouseBillsWebMvcDbContext _context;
-
-        //public BillsController(HouseBillsWebMvcDbContext context)
-        //{
-        //    _context = context;
-        //}
-
         private readonly IBillsRepository _billsRepository;
+        private readonly HouseBillsWebMvcDbContext _dbContext;
 
-        public BillsController(IBillsRepository billsRepository)
+        public BillsController(IBillsRepository billsRepository, HouseBillsWebMvcDbContext dbContext)
         {
+            _dbContext= dbContext;
             _billsRepository = billsRepository;
         }
 
-        // GET: Bills
+      
         public async Task<IActionResult> Index()
         {
+            var model = await _billsRepository.GetAllBills();
+            
+            return View(model);
+        }
+     
+        public async Task<IActionResult> Details(string? id)
+        {
+            var bill =  _billsRepository.GetBillById(id);
 
-            return View (_billsRepository.GetAllBills());
+            if (id == null || bill == null)
+            {
+                return NotFound();
+            }
+            return View(bill);
         }
 
-        // GET: Bills/Details/5
-        //public async Task<IActionResult> Details(Guid? id)
-        //{
-        //    if (id == null || _context.Bills == null)
-        //    {
-        //        return NotFound();
-        //    }
+        // GET: Bills/Create
+        public IActionResult Create()
+        {
+          ViewData["UsersId"] = new SelectList(_dbContext.Set<UserApp>(), "Id", "Id");
+            return View();
+        }
 
-        //    var bill = await _context.Bills
-        //        .Include(b => b.UserApps)
-        //        .FirstOrDefaultAsync(m => m.Id == id);
-        //    if (bill == null)
-        //    {
-        //        return NotFound();
-        //    }
+        // POST: Bills/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create(Bill bill)
+        {
+            Bill billOne = new Bill
+            {
+                Name = bill.Name,
+            };
 
-        //    return View(bill);
-        //}
+            //ViewData["UserAppId"] = new SelectList(_dbContext.Set<UserApp>(), "Id", "Id", bill.UserId);
 
-        //// GET: Bills/Create
-        //public IActionResult Create()
-        //{
-        //    ViewData["UserAppId"] = new SelectList(_context.Set<UserApp>(), "Id", "Id");
-        //    return View();
-        //}
+            await _dbContext.Bills.AddAsync(billOne);
 
-        //// POST: Bills/Create
-        //// To protect from overposting attacks, enable the specific properties you want to bind to.
-        //// For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> Create([Bind("Id,Name,DateTimePay,Sum,BlockEnergy,Heating,ColdWater,HeatingWater,RenovationFund,UserAppId")] Bill bill)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        bill.Id = Guid.NewGuid();
-        //        _context.Add(bill);
-        //        await _context.SaveChangesAsync();
-        //        return RedirectToAction(nameof(Index));
-        //    }
-        //    ViewData["UserAppId"] = new SelectList(_context.Set<UserApp>(), "Id", "Id", bill.UserId);
-        //    return View(bill);
-        //}
+            await _dbContext.SaveChangesAsync();
+
+            return View(billOne);
+        }
 
         //// GET: Bills/Edit/5
         //public async Task<IActionResult> Edit(Guid? id)
@@ -164,7 +157,7 @@ namespace HouseBills.WebMvc.Controllers
         //    {
         //        _context.Bills.Remove(bill);
         //    }
-            
+
         //    await _context.SaveChangesAsync();
         //    return RedirectToAction(nameof(Index));
         //}

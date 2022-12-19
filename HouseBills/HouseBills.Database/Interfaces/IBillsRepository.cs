@@ -6,8 +6,8 @@ namespace HouseBills
     public interface IBillsRepository
     {
         //Bills AddBill(Bills bill);
-        List<Bill> GetAllBills();
+        Task<IEnumerable<Bill>> GetAllBills();
 
-        Bill GetBillById(Guid id);
+        Bill GetBillById(string id);
     }
 }

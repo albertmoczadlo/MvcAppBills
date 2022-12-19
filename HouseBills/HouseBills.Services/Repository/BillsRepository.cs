@@ -1,6 +1,8 @@
 ﻿
 using HouseBills.Domain.Models;
 using HouseBills.Infrastructure;
+using Microsoft.EntityFrameworkCore;
+using System.Security.Cryptography.X509Certificates;
 
 namespace HouseBills
 {
@@ -13,16 +15,17 @@ namespace HouseBills
             _mvcDbContext= mvcDbContext;
         }
 
-        public List<Bill> GetAllBills()
+        public async Task<IEnumerable<Bill>>  GetAllBills()
         {
-            List<Bill> bills = _mvcDbContext.Bills.ToList();
+            var bills =await _mvcDbContext.Bills.ToListAsync();
 
             return bills;
         }
-
-        public Bill GetBillById(int id)
+        public Bill GetBillById(string id)
         {
-            throw new NotImplementedException();
+            var bill = _mvcDbContext.Bills.FirstOrDefault(x=>x.Id.ToString() == id);
+
+            return bill;
         }
 
 

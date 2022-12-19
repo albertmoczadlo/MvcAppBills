@@ -2,14 +2,6 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using HouseBills.Infrastructure;
 using HouseBills.Domain.Models;
-using Microsoft.Extensions.DependencyInjection;
-
-using Microsoft.AspNetCore.Identity;
-using System.Configuration;
-using Microsoft.AspNetCore.Identity;
-using HouseBills.Services;
-using SendGrid.Helpers.Mail;
-using SendGrid;
 using HouseBills;
 using HouseBills.Domain.Interfaces;
 using HouseBills.Infrastructure.Repository;
@@ -34,6 +26,8 @@ internal class Program
 
         builder.Services.AddTransient<IBillsRepository, BillsRepository>();
         builder.Services.AddTransient<IUserRepository , UserRepository>();
+
+
 
         builder.Services
              .AddControllersWithViews()
