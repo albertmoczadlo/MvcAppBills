@@ -5,9 +5,6 @@ namespace HouseBills.Application.Services
 {
     public class BillServices 
     {
-
-        private readonly string file1 = @"C:Users\Albert\Desktop\Bills\HouseBills\Bills.csv";
-
         private readonly IBillsRepository _billsRepository;
        // private Bills _bills;
 

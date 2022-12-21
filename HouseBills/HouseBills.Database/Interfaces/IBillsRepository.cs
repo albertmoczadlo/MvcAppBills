@@ -8,6 +8,6 @@ namespace HouseBills
         //Bills AddBill(Bills bill);
         Task<IEnumerable<Bill>> GetAllBills();
 
-        Bill GetBillById(string id);
+        Task<Bill> GetBillById(string id);
     }
 }
