@@ -29,7 +29,7 @@ namespace HouseBills.WebMvc.Controllers
             return View(model);
         }
      
-        public async Task<IActionResult> Details(string? id)
+        public async Task<IActionResult> Details(Guid id)
         {
             var bill =await _billsRepository.GetBillById(id);
 
@@ -39,6 +39,30 @@ namespace HouseBills.WebMvc.Controllers
             }
             return View(bill);
         }
-        
+
+        public async Task<IActionResult> Delete(Guid id)
+        {
+            var bill = _billsRepository.GetBillById(id);
+
+            return View(bill);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+
+        public async Task<IActionResult> DeleteConfirmed(Guid id)
+        {
+            var bill = await _billsRepository.GetBillById(id);
+
+            if(bill== null)
+            {
+                return NotFound();
+            }
+
+            _billsRepository.DeleteBill(bill);
+
+            return RedirectToAction("Index"); 
+        }
+
     }
 }

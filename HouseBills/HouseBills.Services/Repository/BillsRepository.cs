@@ -21,11 +21,18 @@ namespace HouseBills
 
             return bills;
         }
-        public async Task<Bill> GetBillById(string id)
+        public async Task<Bill> GetBillById(Guid id)
         {
             var bill = await _mvcDbContext.Bills.FindAsync(id);
 
             return bill;
+        }
+
+        public void DeleteBill(Bill bill)
+        {
+            _mvcDbContext.Remove(bill);
+
+            _mvcDbContext.SaveChangesAsync();
         }
 
     }

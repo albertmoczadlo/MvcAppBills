@@ -7,7 +7,7 @@ namespace HouseBills
     {
         //Bills AddBill(Bills bill);
         Task<IEnumerable<Bill>> GetAllBills();
-
-        Task<Bill> GetBillById(string id);
+        void DeleteBill(Bill bill);
+        Task<Bill> GetBillById(Guid id);
     }
 }

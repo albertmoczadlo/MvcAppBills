@@ -27,12 +27,12 @@ public class HouseBillsWebMvcDbContext : IdentityDbContext<UserApp>
     {
     }
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-        optionsBuilder.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Bills; Integrated Security=True;Connect Timeout=30;Encrypt=False; TrustServerCertificate=False; ApplicationIntent=ReadWrite; MultiSubnetFailover=False;");
-        optionsBuilder.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
+    //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    //{
+    //    optionsBuilder.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Bills; Integrated Security=True;Connect Timeout=30;Encrypt=False; TrustServerCertificate=False; ApplicationIntent=ReadWrite; MultiSubnetFailover=False;");
+    //    optionsBuilder.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
         
-    }
+    //}
 
     protected override void OnModelCreating(ModelBuilder builder)
     {

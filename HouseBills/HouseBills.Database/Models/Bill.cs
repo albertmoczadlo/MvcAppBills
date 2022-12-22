@@ -15,6 +15,10 @@ namespace HouseBills.Domain.Models
         //public decimal ColdWater { get; set; }
         //public decimal HeatingWater { get; set; }
         //public decimal RenovationFund { get; set; }
+
+        public Guid UserAppId { get; set; }
+
+        public UserApp UserApp { get; set; }
        
 
 
